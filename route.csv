@@ -1,0 +1,12 @@
+route_0,route_1,route_2
+UUID_b363645e-85cd-397b-a22a-3d23cc6c90a1,TS_section12,trafficspace4
+UUID_8e583928-2103-3512-a1be-44d8631f19ad,TS_section1,trafficspace1
+,TS_section2,TS_section6
+,TS_section3,TS_section5
+,TS_section4,TS_section4
+,TS_section5,TS_section3
+,TS_section6,TS_section2
+,trafficspace1,TS_section1
+,trafficspace4,TS_section12
+,,UUID_9ca0564b-b53d-3bf9-af35-b25ec3d3e7b0
+,,UUID_0ea2adaf-a3b5-36d8-9cb4-29878905c9c7

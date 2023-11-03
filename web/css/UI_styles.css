@@ -1,0 +1,456 @@
+html{
+    --gradient1: #000000;
+    --gradient2: #00172c;
+    --gradient3: #002e57;
+    --gradient4: #003563;
+    --gradient5: #003d72;
+    --gradient6: #0065bd;
+    --gradient7: #237ac6;
+    --gradient8: #3082c9;
+    --gradient9: #418ccd;
+    --gradient10: #9ec3e4;
+    --gradient11: #fafafa;
+    --accent1: #4abd00;
+    --accent2: #00bdbc;
+    --accent3: #000ebd;
+    --accent4: #7c00bd;
+    --accent5: #bd00b1;
+    --grayscale1: #131313;
+    --grayscale2: #4c4c4c;
+    --grayscale3: #848484;
+    --grayscale4: #bfbfbf;
+    --grayscale5: #fafafa;
+    --primary: var(--gradient6);
+    --secondary: var(--gradient10);
+    --tertiary: var(--gradient4);
+    --background: var(--grayscale1); /* #222 */
+    --main-background: hsl(0, 0%, 13%);
+    --nav-background: #303030;
+    --foreground: var(--grayscale5);
+    --success: #13bd00;
+    --error: #bd0000;
+    --warning: #eedb00;
+    --warning2: #ee9200;
+    position: relative;
+}
+
+body {
+    font: 1em "Open Sans", sans-serif;
+    background-color: var(--grayscale5);
+    color: var(--gradient1);
+    /* Line height: 1.4x text size */
+    line-height: 1.4em; 
+}
+
+nav{
+    /* sticky navbar */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+/* hide navbar on scrolling down and show when scrolling up with smooth animation */
+nav.hide{
+    animation: hideNav 1s forwards;
+}
+nav.show{
+    animation: showNav 1s forwards;
+}
+@keyframes hideNav{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-100%);                    
+    }
+}
+@keyframes showNav{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+/* Horizontal Navbar */
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--grayscale5);
+}
+nav li{
+    float: left;
+    border-radius: .3em;
+}
+
+nav li:first-child{
+    margin-top: .75em;
+    /* color:red; */
+}
+
+nav a{
+    display: block;
+    color: var(--grayscale1);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav a:hover{
+    background-color: var(--grayscale3);
+    border-radius: .3em;
+}
+
+/* If the width is smaller than 500px make the nav list items left aligned and stack the list */
+@media screen and (max-width: 500px){
+    nav ul{
+        overflow: hidden;
+    }
+    nav li{
+        float: none;
+        display: inline-block;
+        width: 100%;
+    }
+    nav a{
+        display: block;
+        text-align: left;
+    }
+
+    /* .nav-text{
+        display: none;
+    } */
+    
+    
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #d7d7d7;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 3em;
+    /* padding-top: 60px; */
+    padding-bottom: 0em;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--gradient1);
+    display: block;
+    transition: 0.3s;
+    line-height: 1.25em;
+}
+
+.sidenav div {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--gradient1);
+    display: block;
+    transition: 0.3s;
+    line-height: 1.25em;
+}
+
+/* Change radio input selection colour */
+.sidenav input[type=radio]:checked + label{
+    color: var(--accent1);
+}
+
+
+.sidenav label{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.sidenav label:hover {
+    color: var(--gradient6);
+    /* change mousepointer */
+    cursor: pointer;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+    /* padding: 16px; */
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#searchContainer{
+    /* align center vertically*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        
+}
+
+#locationInputContainer{
+    /* align center horizontally and vertically*/
+    display: flex;
+    justify-content: space-evenly;    
+    align-items: center;
+    width: 90%;
+    margin-bottom: .5em;    
+}
+
+.searchBar {
+    width: 18em;
+    color: var(--grayscale1);
+    border-radius: 2em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--grayscale1);
+    background-color: var(--grayscale5);
+    height: 3em;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-bottom: .5em;
+    
+    /* background-image: url('../img/map-pin-svgrepo-com.svg'); */
+    background-position: 1em center;
+    background-repeat: no-repeat;
+    background-size: 1.75em;
+    padding-left: 3.5em;
+
+    font-weight: bold;
+}
+
+.searchBar:hover{
+    background-color: var(--gradient6);
+}
+
+#startInput{
+    background-image: url('../img/map-pin-svgrepo-com.svg');
+}
+#destinationInput{
+    background-image: url('../img/flag-svgrepo-com.svg');
+}
+
+/* #searchField placeholder text to white */
+.searchBar::placeholder{
+    color: var(--grayscale1);
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.searchBar:focus{
+    outline: none;
+    border: 2px solid var(--grayscale1); 
+    /* size of cursor */
+}
+
+#switchIcon{
+    width: 1.75em;
+    height: 1.75em;
+    margin: .15em;
+    
+}
+
+#switchLocationsButton{
+    border-radius: .5em;
+    background-color: var(--grayscale5);
+    border: 1px solid var(--gradient1);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+#switchLocationsButton:hover{
+    background-color: var(--gradient6);
+    cursor: pointer;
+}
+
+#switchLocationsButton:focus{
+    /* background-color: var(--grayscale2); */
+    border: 2px solid var(--gradient1);
+    outline: none;
+}  
+
+
+
+/* Move the about all the way to the bottom */
+#about{
+    position: absolute;
+    bottom: 2.5em;
+    text-align: center;
+    
+}
+
+#startButton{
+    display: block;
+    width: 80%;
+    color: white;
+    border-radius: 2em;
+    border-style: solid;
+    border: 2px var(--gradient4);
+    background-color: var(--gradient6);
+    height: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    margin-bottom: 3em;
+}
+
+#startButton:hover{
+    background-color: var(--gradient7);
+    cursor: pointer;
+}
+
+#startButton:active{
+    background-color: var(--gradient6);
+}
+
+#startButton:disabled{
+    background-color: var(--gradient4);
+    cursor: not-allowed;
+}
+
+#sidenav-icon{
+    margin-left: .5em;
+    margin-right: .5em;
+    font-size:30px;
+    cursor:pointer;
+}
+
+
+.loadingContainer{
+    /* align content center horizontally */
+    display: flex;
+    justify-content: center;
+    position: relative;    
+}
+
+.loadingContainer p{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: .75em;
+}
+
+
+#spinnerImg{
+    width:2em;
+    height:2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* animate spinner */
+    animation: spin 2.5s linear infinite;
+}
+
+/* animate a routing spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingContainer{
+    display: none;
+}
+
+
+header {
+    background-color: var(--grayscale5);
+    color: var(--grayscale1);
+    padding: .25em;
+    min-width: 300px;
+    /* Make items align in one line */
+    display: flex;
+    justify-content: start;
+}
+
+header span{
+    /* align center vertically */
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    /* align center vertically */
+    text-align: center;
+    width: 90%;
+    line-height: 1.2em;
+}
+
+main {
+    position: relative;
+}
+/* #output{
+    width: 100%;
+    height: 51em;
+} */
+
+
+
+#map{
+    width: 100%;
+    height: 700px;
+    color: #000000;
+    /* display: none; */
+}
+
+.leaflet-legend-title{
+    font-size: 2em;
+}
+
+.leaflet-legend-column{
+    font-size: 1.5em;
+}
+
+
+
+.resultsContainer{
+    /* width: 100%; */
+    display: none;
+    border: 1px solid #fff;
+    border-radius: .5em;
+    padding: .5em;
+    margin-top: .5em;
+}
+
+.resultsContainer h2{
+    margin-top: 0;
+}
+
+.resultsContainer p{
+    margin-bottom: 0;
+    margin-top: 0.75em;
+    font-size: 1.25em;
+}
+
+
+footer {
+    background-color: var(--grayscale5);
+    color: var(--grayscale1);
+    padding: .5em;
+    min-width: 300px;
+    margin-top: 1em;
+}
