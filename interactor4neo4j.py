@@ -970,10 +970,16 @@ class Neo4jPreProcessor:
 
                     euclidean_dist = euclidean_distance(point1, point2)
                     # ==> euclidean distance and advanced distance as well as width all get this value
-                    width_weight = 1 / euclidean_dist
+                    if euclidean_dist == 0:
+                        width_weight = float('inf')
+                    else:
+                        width_weight = 1 / euclidean_dist
 
                     # inclination
-                    inclination = (point2[2] - point1[2]) / euclidean_dist
+                    if euclidean_dist == 0:
+                        inclination = 100
+                    else:
+                        inclination = (point2[2] - point1[2]) / euclidean_dist
                     inclination_weight = inclination + 100
 
                     # Check whether a speed limit can be derived from SUCCESSOR_OF relationships
